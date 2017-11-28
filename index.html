@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
+    <title>360图片分享</title>
+    <!-- jQuery文件 -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.js"></script>
+    <!--样式表文件-->
+    <link rel="stylesheet" href="css/index360.css">
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <!--用户信息-->
+    <div class="user_info">
+        <div class="user_head">
+            <img id="img_user_head" src="img/user.jpg">
+        </div>
+        <div class="user_name">
+            <span id="user_name_span">名字是null</span>
+            <span id="create_time_span">2017-08-29 15:52:48</span>
+        </div>
+    </div>
+    <!--全景图-->
+    <div class="scroll-img" id="scroll-img">
+        <div class="scroll-img-box" id="scrollImgBox">
+            <div class="scroll-img-td" id="marquePic1">
+                <img name="pic"
+                     id="main_img_work"
+                     src="img/28.jpg">
+            </div>
+            <div class="scroll-img-td" id="marquePic2"></div>
+        </div>
+        <!--进度条-->
+        <div class="progress_bar">
+            <div class="auto_progress"></div>
+        </div>
+        <!--大放大镜图标-->
+        <div class="big_magnifier">
+            <img id="big_magnifier" src="img/big_fang_da.png">
+            <span>点击放大镜，全景局部放大展示</span>
+        </div>
+        <!--播放暂停按钮-->
+        <div class="button_div" id="switch_div">
+            <img id="switch" src="img/play.png">
+        </div>
+        <!--横竖屏转换按钮-->
+        <div class="turn_div" id="turn_div">
+            <img id="turn" src="img/toVertical.png">
+        </div>
+    </div>
+    <!--放大镜框-->
+    <div class="circleProgress_wrapper" id="circleProgress_wrapper">
+        <div class="wrapper right">
+            <div class="circleProgress rightCircle"></div>
+        </div>
+        <div class="wrapper left">
+            <div class="circleProgress leftCircle"></div>
+        </div>
+        <div class="magnifier_box" id="magnifier_box">
+            <img id="magnifierImg" src="img/28.jpg" alt="放大镜图片">
+        </div>
+    </div>
+    <!--描述-->
+    <div class="describe">
+        <span class="describe_span">北京一日游，13号线西直门站。</span>
+        <!--小放大镜图标-->
+        <div class="magnifier_div" id="magnifier_div">
+            <img id="magnifier" src="img/fang_da.png">
+        </div>
+        <!--评论按钮-->
+        <div class="comment_div" id="comment_div">
+            <img id="comment" src="img/comment_w.png">
+        </div>
+    </div>
+    <!--评论、点赞-->
+    <div class="icon_box">
+        <img class="comment_icon fl" src="./img/comment_icon_black.png" alt=""/>
+        <span class="icon_span fl">0</span>
+        <img class="comment_icon fl" src="./img/parise_icon_black.png" alt=""/>
+        <span id="myText" class="icon_span fl">0</span>
+    </div>
+    <div class="modalImg" id="modalImg">
+        <img id="targetImg" src="./img/28.jpg" style="height: 50%;">
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/vendor360.js"></script>
+<script type="text/javascript" src="js/index360.js"></script>
+</html>
