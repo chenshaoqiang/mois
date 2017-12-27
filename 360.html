@@ -1,89 +1,74 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
-    <title>360图片分享</title>
+<html lang="en">
+<head>
+    <title>360度VR展示</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="browsermode" content="application"/>
     <!-- jQuery文件 -->
-    <script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.js"></script>
-    <!--样式表文件-->
-    <link rel="stylesheet" href="css/index360.css">
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <!-- 样式 -->
+    <link rel="stylesheet" href="css/360.css">
+    <script type="text/javascript">
+
+        var deviceWidth;
+        function getScale() {
+
+            //设置压缩比
+            deviceWidth = document.documentElement.clientWidth >= 360 ? 360 : document.documentElement.clientWidth;
+            document.documentElement.style.fontSize = (deviceWidth / 3.6) + 'px';
+
+        }
+
+        getScale();
+
+    </script>
 </head>
 <body>
-<div class="wrap" id="wrap">
-    <!--用户信息-->
-    <div class="user_info">
-        <div class="user_head">
-            <img id="img_user_head" src="img/user.jpg">
-        </div>
-        <div class="user_name">
-            <span id="user_name_span">名字是null</span>
-            <span id="create_time_span">2017-08-29 15:52:48</span>
-        </div>
-    </div>
-    <!--全景图-->
-    <div class="scroll-img" id="scroll-img">
-        <div class="scroll-img-box" id="scrollImgBox">
-            <div class="scroll-img-td" id="marquePic1">
-                <img name="pic"
-                     id="main_img_work"
-                     src="img/28.jpg">
+<div id="wrap" class="wrap">
+    <div id="container" class="container" style="display: block;">
+        <div id="showInfo">
+            <!-- 用户信息 -->
+            <div class="user_info">
+                <input type="hidden" value="5004" id="protionId"/>
+                <!-- 用户头像 -->
+                <div class="user_head">
+                    <img id="img_user_head" src="./img/user.jpg">
+                </div>
+                <span class="user_name" id="font_user_name">嘻嘻哈哈</span>
+                <span class="creat_time">2017-06-06</span>
+                <span style="float: right;font-size: 0.12rem;color: #ffffff;margin-left: 0.1rem;margin-right: 0.15rem;">次</span>
+                <span style="float: right;font-size: 0.12rem;color: #ffffff;margin-left: 0.1rem;">99</span>
+                <span style="float: right;font-size: 0.12rem;color: #ffffff;">播放</span>
             </div>
-            <div class="scroll-img-td" id="marquePic2"></div>
-        </div>
-        <!--进度条-->
-        <div class="progress_bar">
-            <div class="auto_progress"></div>
-        </div>
-        <!--大放大镜图标-->
-        <div class="big_magnifier">
-            <img id="big_magnifier" src="img/big_fang_da.png">
-            <span>点击放大镜，全景局部放大展示</span>
-        </div>
-        <!--播放暂停按钮-->
-        <div class="button_div" id="switch_div">
-            <img id="switch" src="img/play.png">
-        </div>
-        <!--横竖屏转换按钮-->
-        <div class="turn_div" id="turn_div">
-            <img id="turn" src="img/toVertical.png">
+            <!-- 播放按钮 -->
+            <div class="switch_div play" id="switch_div"></div>
+            <div class="work_info">
+                <div class="priseNum">
+                    <div class="priseNum_icon"></div>
+                    <span>88</span>
+                </div>
+                <div class="commentNum">
+                    <div class="comment_icon"></div>
+                    <span>999</span>
+                </div>
+                <div class="gyro_icon close" id="gyro"></div>
+                <div class="vr_icon" id="vrIcon"></div>
+            </div>
+            <div class="bottom_div">开启横屏效果更佳</div>
         </div>
     </div>
-    <!--放大镜框-->
-    <div class="circleProgress_wrapper" id="circleProgress_wrapper">
-        <div class="wrapper right">
-            <div class="circleProgress rightCircle"></div>
-        </div>
-        <div class="wrapper left">
-            <div class="circleProgress leftCircle"></div>
-        </div>
-        <div class="magnifier_box" id="magnifier_box">
-            <img id="magnifierImg" src="img/28.jpg" alt="放大镜图片">
-        </div>
-    </div>
-    <!--描述-->
-    <div class="describe">
-        <span class="describe_span">北京一日游，13号线西直门站。</span>
-        <!--小放大镜图标-->
-        <div class="magnifier_div" id="magnifier_div">
-            <img id="magnifier" src="img/fang_da.png">
-        </div>
-        <!--评论按钮-->
-        <div class="comment_div" id="comment_div">
-            <img id="comment" src="img/comment_w.png">
-        </div>
-    </div>
-    <!--评论、点赞-->
-    <div class="icon_box">
-        <img class="comment_icon fl" src="./img/comment_icon_black.png" alt=""/>
-        <span class="icon_span fl">0</span>
-        <img class="comment_icon fl" src="./img/parise_icon_black.png" alt=""/>
-        <span id="myText" class="icon_span fl">0</span>
-    </div>
-    <div class="modalImg" id="modalImg">
-        <img id="targetImg" src="./img/28.jpg" style="height: 50%;">
-    </div>
+    <div style="display: none;" id="exit" class="exitIcon"></div>
 </div>
-</body>
+
+<script type="text/javascript" src="lib/three.min.js"></script>
+<script type="text/javascript" src="lib/StereoEffect.js"></script>
+<script type="text/javascript" src="lib/jquery.fullscreen-min.js"></script>
 <script type="text/javascript" src="js/360.js"></script>
+
+</body>
 </html>
