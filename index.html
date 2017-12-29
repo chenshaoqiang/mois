@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>panoramic</title>
+    <title>moispano</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
 
@@ -30,16 +30,17 @@
         img {border-style: none;pointer-events: none;}
         html{font-size: 100px;}
         ul,li{list-style: none;}
-        html,body{width: 100%;height: 100%;overflow: auto;background: #ffffff}
+        html,body{width: 100%;height: 100%;overflow: hidden;background: #ffffff}
         body {background-color: #ffa655;margin: 0;overflow: hidden;}
         a {text-decoration: none;}
         /*-------------------*/
+        code{color: #f3c00f;}
         .wrap{width: 100%;height: 100%;overflow: auto;}
         .imgBox,.btn_box{width: 3.3rem;height: auto;margin: 0 auto;}
         .btn_box{line-height: 0.32rem;margin-top: 0.15rem;overflow: hidden;margin-bottom: 0.15rem;}
         .imgBox img{width: 100%;height: auto;vertical-align: top;margin-top: 0.15rem;}
         .span_style{padding: 0.05rem;line-height: .32rem;font-size: 0.18rem;background: #f3c00f;border-radius: 0.05rem;}
-        .p_style{line-height: 0.3rem;font-size: .18rem;color: #000000;margin: 0 0.15rem;border-radius: 0.05rem;padding:0.05rem 0.1rem;}
+        .p_style{line-height: 0.3rem;font-size: .14rem;color: #000000;margin: 0 0.15rem;border-radius: 0.05rem;padding:0.05rem 0.1rem;}
     </style>
     <script type="text/javascript">
 
@@ -64,8 +65,10 @@
 </head>
 <body>
 <div class="wrap">
-    <p class="p_style" style="text-align: center;font-weight:bold;">moispano</p>
-    <p class="p_style" style="font-size: 0.14rem;background: #dddddd;">MOISPANO是以全景为主要特色的影像拍摄、分享与交流软件，支持全景、延时及普通照片与视频的摄影，全景摄影配合特有的发条云台等硬件设备处理，好玩易用价廉，推动全景摄影的普及。拍摄结果可以通过微信、微博、QQ等多种途径分享，也可投稿至本平台进行展示，收获点赞和评论。</p>
+    <p class="p_style" style="text-align: center;font-weight:bold;">moispano分享</p>
+    <p class="p_style" style="font-size: 0.12rem;background: #dddddd;">摩斯全景APP配套的产品分享H5，此处展示360分享模版和720分享模版。两种模版都使用了<code>three.js</code>这个3D模型构建库和用于制作<code>cardboard</code>分屏显示的<code>StereoEffect.js</code>以及<code>requestAnimationFrame()</code>渲染动画。
+        模版实现原理为通过构建远景相机镜头，将360度全景图以贴图的形式构建在一个<code>柱体CylinderGeometry</code>的表面上（720度全景图则构建于<code>球体SphereGeometry</code>表面），将视角置于世界坐标的原点，通过转换相机的视角来达到对图片的查看。其中720模版<code>陀螺仪功能</code>调用<code>OrbitControls.js</code>库封装的方法。
+        360模版由于页面使用了css3<code>transform</code>做了<code>模拟强制横屏</code>的实现，故而陀螺仪功能为通过监听<code>deviceorientation</code>事件的<code>event.alpha</code>值模拟实现。其中720模版还具备于<code>世界坐标内定点长按评论</code>的功能，当内嵌于APP内可取到用户值的时候可提交评论。</p>
     <div class="imgBox">
         <img src="img/moispano1.png" alt="">
     </div>
