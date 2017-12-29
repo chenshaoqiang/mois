@@ -35,7 +35,10 @@
         a {text-decoration: none;}
         /*-------------------*/
         .wrap{width: 100%;height: 100%;overflow: auto;}
-        .imgBox{width: 91%;height: auto;margin: 0 auto;}
+        .imgBox,.btn_box{width: 3.3rem;height: auto;margin: 0 auto;}
+        .btn_box{line-height: 0.32rem;margin-top: 0.15rem;overflow: hidden;margin-bottom: 0.15rem;}
+        .imgBox img{width: 100%;height: auto;vertical-align: top;margin-top: 0.15rem;}
+        .span_style{padding: 0.05rem;line-height: .32rem;font-size: 0.18rem;background: #f3c00f;border-radius: 0.05rem;}
         .p_style{line-height: 0.3rem;font-size: .18rem;color: #000000;margin: 0 0.15rem;border-radius: 0.05rem;padding:0.05rem 0.1rem;}
     </style>
     <script type="text/javascript">
@@ -44,7 +47,7 @@
         function getScale() {
 
             //设置压缩比
-            deviceWidth = document.documentElement.clientWidth >= 360 ? 360 : document.documentElement.clientWidth;
+            deviceWidth = document.documentElement.clientWidth >= 720 ? 720 : document.documentElement.clientWidth;
             document.documentElement.style.fontSize = (deviceWidth / 3.6) + 'px';
 
         }
@@ -64,7 +67,11 @@
     <p class="p_style" style="text-align: center;font-weight:bold;">moispano</p>
     <p class="p_style" style="font-size: 0.14rem;background: #dddddd;">MOISPANO是以全景为主要特色的影像拍摄、分享与交流软件，支持全景、延时及普通照片与视频的摄影，全景摄影配合特有的发条云台等硬件设备处理，好玩易用价廉，推动全景摄影的普及。拍摄结果可以通过微信、微博、QQ等多种途径分享，也可投稿至本平台进行展示，收获点赞和评论。</p>
     <div class="imgBox">
-        <img  style="width: 100%;height: auto;vertical-align: top;margin-top: 0.15rem;" src="img/moispano1.png" alt="">
+        <img src="img/moispano1.png" alt="">
+    </div>
+    <div class="btn_box">
+        <span onclick="javascript:window.location.href='./360.html'" class="span_style" style="float: left;">360分享模版</span>
+        <span onclick="javascript:window.location.href='./720.html'" class="span_style" style="float: right;">720分享模版</span>
     </div>
 </div>
 <!-- js文件 -->
